@@ -1,0 +1,613 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+img {
+  object-fit: cover;
+}
+
+body {
+  background-color: white;
+}
+
+nav {
+  padding: 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  background-color: white;
+}
+
+nav a.logo {
+  display: flex;
+  align-items: center;
+  font-size: 33px;
+  color: black;
+  font-weight: 600;
+}
+
+nav .box-icon {
+  width: 50px; 
+  margin-right: 10px;
+}
+
+nav .links a:not(:last-child) {  
+  margin-right: 45px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+nav .links a.link-bold {
+  font-weight: bold;
+}
+
+nav .links a {
+  position: relative; 
+  text-decoration: none; 
+}
+
+nav .links a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px; 
+  left: 0;
+  width: 0;
+  height: 2px; 
+  background-color: black; 
+  transition: width 0.3s ease; 
+}
+
+nav .links a:hover::before {
+  width: 100%; /* Largura do sublinhado ao passar o mouse */
+}
+
+header {
+  padding: 0 80px;
+  height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .esquerda {
+  width: 700px;
+}
+
+header .esquerda h1 {
+  font-size: 60px;
+}
+
+header .esquerda p {
+  margin: 40px 0;
+  color: #777;
+}
+
+header .esquerda a {
+  display: flex;
+  align-items: center;
+  background: #000;
+  width: 200px;
+  padding: 8px;
+  border-radius: 60px;
+}
+
+header .esquerda a i {
+  background-color: #fff;
+  font-size: 24px;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+header .esquerda a span {
+  color: #fff;
+  margin-left: 10px;
+}
+
+header img {
+  width: 500px;
+}
+
+h2.separator {
+  padding: 0 80px;
+  font-size: 40px;
+  margin-top: 40px;
+}
+
+/* Medium screens (tablets, 768px and up) */
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 0 40px;
+  }
+
+  nav a.logo {
+    font-size: 28px;
+  }
+
+  nav .box-icon {
+    width: 40px;
+  }
+
+  nav .links a:not(:last-child) {
+    margin-right: 30px;
+  }
+
+  nav .links a {
+    font-size: 14px;
+  }
+
+  header {
+    padding: 0 40px;
+  }
+
+  header .esquerda h1 {
+    font-size: 40px;
+  }
+
+  header .esquerda p {
+    font-size: 18px;
+    margin: 30px 0;
+  }
+
+  header .esquerda a {
+    width: 180px;
+    padding: 7px;
+    font-size: 16px;
+  }
+
+  header .esquerda a i {
+    font-size: 22px;
+    padding: 7px;
+  }
+
+  header img {
+    width: 300px;
+  }
+
+  h2.separator {
+    padding: 0 40px;
+    font-size: 30px;
+    margin-top: 30px;
+  }
+}
+
+/* Small screens (phones, 500px and up) */
+@media screen and (max-width: 500px) {
+  nav {
+    padding: 0 20px;
+    justify-content: space-between;
+  }
+
+  nav a.logo {
+    font-size: 24px;
+  }
+
+  nav .box-icon {
+    width: 30px;
+    margin-right: 0;
+  }
+
+  nav .links a:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  nav .links a {
+    font-size: 12px;
+  }
+
+  header {
+    padding: 0 20px;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header .esquerda {
+    width: 100%;
+  }
+
+  header .esquerda h1 {
+    font-size: 24px;
+  }
+
+  header .esquerda p {
+    font-size: 14px;
+    margin: 20px 0;
+  }
+
+  header .esquerda a {
+    width: 150px;
+    padding: 6px;
+    font-size: 14px;
+  }
+
+  header .esquerda a i {
+    font-size: 20px;
+    padding: 6px;
+  }
+
+  header img {
+    width: 150px;
+    margin-top: 20px;
+  }
+
+  h2.separator {
+    padding: 0 20px;
+    font-size: 24px;
+    margin-top: 20px;
+  }
+}
+
+/* Extra small screens (phones, 320px and up) */
+@media screen and (max-width: 320px) {
+  nav {
+    padding: 0 10px;
+  }
+
+  nav a.logo {
+    font-size: 20px;
+  }
+
+  nav .box-icon {
+    width: 20px;
+  }
+
+  nav .links a:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  nav .links a {
+    font-size: 10px;
+  }
+
+  header {
+    padding: 0 10px;
+  }
+
+  header .esquerda h1 {
+    font-size: 20px;
+  }
+
+  header .esquerda p {
+    font-size: 12px;
+    margin: 15px 0;
+  }
+
+  header .esquerda a {
+    width: 120px;
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  header .esquerda a i {
+    font-size: 18px;
+    padding: 5px;
+  }
+
+  header img {
+    width: 100px;
+    margin-top: 15px;
+  }
+
+  h2.separator {
+    padding: 0 10px;
+    font-size: 20px;
+    margin-top: 15px;
+  }
+}
+
+.centralizado {
+  max-width: 420px;
+  margin: 60px auto 20px; /* Reduzi o margin-bottom para dar espaço para as mensagens */
+  padding: 40px;
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  min-height: 400px; /* Reduzi o min-height para ser um pouco menor */
+  transition: margin 0.3s ease; /* Adicionado para efeito de transição */
+}
+
+.mensagens {
+  margin-bottom: 20px; /* Espaçamento entre mensagens e o formulário */
+}
+
+.alert {
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  text-align: center;
+  margin: 0 auto 10px; /* Centraliza e adiciona margem inferior */
+  max-width: 380px; /* Define a largura máxima do retângulo */
+}
+
+.alert-danger {
+  background-color: #d9534f; /* Vermelho para erros */
+  color: white;
+}
+
+.alert-success {
+  background-color: #5cb85c; /* Verde para sucesso */
+}
+
+
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center; /* Centraliza o conteúdo */
+}
+
+.titulo {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.entrada {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.entrada label {
+  width: 100px; /* Defina um tamanho fixo para os rótulos */
+  text-align: left; /* Alinha os rótulos à esquerda */
+  font-weight: 500;
+}
+.entrada input {
+  flex: 1;
+  padding: 12px 40px 12px 15px; /* Ajuste o padding conforme necessário */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.entrada i {
+  position: absolute;
+  right: 15px; /* Posicione o ícone próximo ao campo */
+  color: #777;
+  pointer-events: none;
+}
+
+.texto-login {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.texto-login:hover {
+  text-decoration: underline;
+}
+
+.entrada-botao input {
+  width: 100%;
+  padding: 12px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.entrada-botao input:hover {
+  background-color: #333;
+}
+
+:root {
+  --light: #f6f6f9;
+  --primary: #1976D2;
+  --light-primary: #CFE8FF;
+  --grey: #eee;
+  --dark-grey: #AAAAAA;
+  --dark: #363949;
+  --danger: #D32F2F;
+  --light-danger: #FECDD3;
+  --warning: #FBC02D;
+  --light-warning: #FFF2C6;
+  --success: #388E3C;
+  --light-success: #BBF7D0;
+}
+
+
+.sidebar{
+  position: fixed;
+  top: 10;
+  left: 0;
+  background: white;
+  width: 230px;
+  height: 100%;
+  z-index: 2000;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar{
+  display: none;
+}
+
+.sidebar .logo2{
+  font-size: 24px;
+  font-weight: 700;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  color: black;
+  z-index: 500;
+  padding-bottom: 20px;
+  box-sizing: content-box;
+}
+
+.sidebar .logo2 .logo2-nome span{
+  color: black;
+}
+
+.sidebar .logo2 .bx{
+  min-width: 60px;
+  display: flex;
+  justify-content: center;
+  font-size: 2.2rem;
+}
+
+.sidebar .sidebar-menu{
+  width: 100%;
+  margin-top: 48px;
+}
+
+.sidebar .sidebar-menu li{
+  height: 48px;
+  background: transparent;
+  margin-left: 6px;
+  border-radius: 48px 0 0 48px;
+  padding: 4px;
+}
+
+.sidebar .sidebar-menu li.active{
+  background: var(--grey);
+  position: relative;
+}
+
+.sidebar .sidebar-menu li.active::before{
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  top: -40px;
+  right: 0;
+  box-shadow: 20px 20px 0 var(--grey);
+  z-index: -1;
+}
+
+.sidebar .sidebar-menu li.active::after{
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  bottom: -40px;
+  right: 0;
+  box-shadow: 20px -20px 0 var(--grey);
+  z-index: -1;
+}
+
+.sidebar .sidebar-menu li a{
+  width: 100%;
+  height: 100%;
+  background: var(--light);
+  display: flex;
+  align-items: center;
+  border-radius: 48px;
+  font-size: 16px;
+  color: black;
+  white-space: nowrap;
+  overflow-x: hidden;
+  transition: all 0.3s ease;
+}
+
+.sidebar .sidebar-menu li.active a{
+  color: var(--success);
+}
+
+.sidebar .sidebar-menu li a .bx{
+  min-width: calc(60px - ((4px + 6px) * 2));
+  display: flex;
+  font-size: 1.6rem;
+  justify-content: center;
+}
+
+.sidebar .sidebar-menu li a.sair{
+  color: red;
+}
+
+.dashboard {
+  margin-left: 250px;
+
+}
+
+.dashboard .insights{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 24px;
+  margin-top: 36px;
+}
+
+.dashboard .insights li {
+  padding: 24px;
+  background: var(--light);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Adicione este estilo para centralizar conteúdo */
+  text-align: center; /* Alinha o texto no centro */
+  cursor: pointer;
+}
+
+.dashboard .insights li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--dark);
+  font-size: 20px;
+}
+
+.dashboard .insights li .bx {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ajustes específicos para cada ícone se necessário */
+.dashboard .insights li:nth-child(1) .bx {
+  background: var(--light-primary);
+  color: var(--primary);
+}
+
+.dashboard .insights li:nth-child(2) .bx {
+  background: var(--light-warning);
+  color: var(--warning);
+}
+
+.dashboard .insights li:nth-child(3) .bx {
+  background: var(--light-success);
+  color: var(--success);
+}
+
+.dashboard .insights li:nth-child(4) .bx {
+  background: var(--light-danger);
+  color: var(--danger);
+}
+
+.dashboard a {
+  font-size: 20px;
+}
+
+.dashboard h1 {
+  color: var(--dark);
+}
+
+.produto {
+  margin-left: 240px;
+}

@@ -1,0 +1,35 @@
+<div class="centralizado">
+    <div class="form-container">
+        <h2 class="titulo text-center">Registro</h2>
+        <form action="/clientes/cadastro" method="POST">
+            <div class="entrada">
+                <label for="nome">Nome:</label>
+                <input type="text" placeholder="Coloque seu nome" id="nome" name="nome" required>
+                <i class="uil uil-user"></i>
+            </div>
+            <div class="entrada">
+                <label for="email">E-mail:</label>
+                <input type="text" placeholder="Coloque seu E-mail" id="email" name="email" required>
+                <i class="uil uil-envelope icon"></i>
+            </div>
+            <div class="entrada">
+                <label for="senha">Senha:</label>
+                <input type="password" placeholder="Crie uma senha" id="senha" name="senha" required>
+                <i class="uil uil-lock icon"></i>
+            </div>
+            <div class="entrada">
+                <label for="senha2">Confirme a Senha:</label>
+                <input type="password" class="password" placeholder="Confirme a senha" id="senha2" name="senha2" required>
+                <i class="uil uil-lock icon"></i>
+            </div>
+            <div class="entrada-botao">
+                <input type="submit" value="Registrar">
+            </div>
+        </form>
+        <div class="login text-center">
+            <span class="text">Já possui uma conta?
+                <a href="/clientes/login" class="texto-login">Entrar</a>
+            </span>
+        </div>
+    </div>
+</div>

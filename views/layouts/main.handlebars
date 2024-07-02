@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Estoque</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+    {{> navbar}}
+    <div class="mensagens">
+        <!-- Mensagens de erro geral -->
+        {{#if error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
+        {{/if}}
+
+        <!-- Mensagens de sucesso -->
+        {{#if success_msg}}
+            <div class="alert alert-success">{{success_msg}}</div>
+        {{/if}}
+
+        <!-- Mensagens de erros de validação -->
+        {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+        {{/if}}
+        <!-- Mensagens de erros de validação -->
+        {{#if erros}}
+            {{#each erros}}
+                <div class="alert alert-danger">{{this.texto}}</div>
+            {{/each}}
+        {{/if}}
+        <!-- Conteúdo principal -->
+        {{{body}}}
+    </div>
+</body>
+</html>

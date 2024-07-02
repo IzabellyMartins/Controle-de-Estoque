@@ -1,0 +1,16 @@
+<nav>
+    <a href="/" class="logo">
+        <img src="/assets/box.svg" alt="Box Icon" class="box-icon">
+        Controle de Estoque
+    </a>
+
+    <div class="links" id="navbar-menu">
+        <a href="/" class="link-bold">Início</a>
+        {{#if isAuthenticated}}
+            <a href="/clientes/sair" class="link-bold">Sair</a>
+        {{else}}
+            <a href="/clientes/login" class="link-bold">Entrar</a>
+        {{/if}}
+        <a href="#" class="link-bold">Sobre</a>
+    </div>
+</nav>
