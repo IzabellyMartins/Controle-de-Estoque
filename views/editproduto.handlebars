@@ -1,0 +1,146 @@
+<div class="sidebar">
+    <ul class="sidebar-menu">
+        <li><a href="/clientes/dashboard"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+        <br>
+        <li><a href="/clientes/cadastrarproduto"><i class='bx bx-package'></i>Cadastrar Produtos</a></li>
+        <li><a href="#"><i class='bx bxs-store'></i>Realizar Vendas</a></li>
+        <li><a href="#"><i class='bx bx-book-bookmark'></i>Entrada e Saída</a></li>
+        <li><a href="#"><i class='bx bx-line-chart'></i>Detalhes de Vendas</a></li>
+    </ul>
+
+    <ul class="sidebar-menu">
+        <li>
+            <a href="/clientes/sair" class="sair">
+                <i class='bx bx-log-out'></i>
+                Sair
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+<div class="editproduto">
+    <h2>Editar cadastro de produto:</h2>
+    <form action="/clientes/editarproduto" method="POST" class="form-container2">
+        <div class="form-group">
+            <label for="nomeproduto">Nome do produto:</label>
+            <input type="text" id="nomeproduto" name="nomeproduto" class="form-control" placeholder="Nome do Produto" required>
+        </div>
+        <div class="form-group">
+            <label for="preco">Preço:</label>
+            <input type="text" id="preco" name="preco" class="form-control" placeholder="Preço" required>
+        </div>
+        <div class="form-group">
+            <label for="precovenda">Preço de venda:</label>
+            <input type="text" id="precovenda" name="precovenda" class="form-control" placeholder="Preço de venda" required>
+        </div>
+        <div class="form-group">
+            <label for="validade">Validade:</label>
+            <input type="date" id="validade" name="validade" class="form-control" placeholder="Validade">
+        </div>
+        <div class="form-group">
+            <label for="quantidade">Quantidade:</label>
+            <input type="text" id="quantidade" name="quantidade" class="form-control" placeholder="Quantidade" required>
+        </div>
+    </form>
+
+    <div class="botao-container">
+        <div class="cadbotao">
+            <input type="submit" value="Editar produto">
+        </div>
+
+        <div class="cadbotaocancelar">
+           <a href="/clientes/cadastrarproduto"><input type="button" value="Cancelar"></a>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .editproduto {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .editproduto h2 {
+        margin-bottom: 20px;
+        color: #333;
+        text-align: center;
+    }
+
+    .form-container2 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: calc(50% - 10px);
+    }
+
+    .form-group label {
+        margin-bottom: 5px;
+        color: black;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    .botao-container {
+        display: flex;
+        justify-content: left;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .cadbotao, .cadbotaocancelar {
+        flex: 1;
+        text-align: left;
+    }
+
+    .cadbotao input, .cadbotaocancelar input {
+        width: 120px; /* Define a largura dos botões */
+        padding: 10px; /* Ajusta o padding para reduzir o tamanho */
+        border: none;
+        border-radius: 600px;
+        cursor: pointer;
+        font-size: 15px; /* Diminui o tamanho da fonte */
+        transition: background-color 0.3s ease;
+    }
+
+    .cadbotao input {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .cadbotao input:hover {
+        background-color: #0056b3;
+    }
+
+    .cadbotaocancelar input {
+        background-color: #d9534f;
+        color: white;
+    }
+
+    .cadbotaocancelar input:hover {
+        background-color: #ac312d;
+    }
+</style>

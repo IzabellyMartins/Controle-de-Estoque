@@ -19,5 +19,231 @@
 </div>
 
 <div class="produto">
-    <h2>Cadastrar Produto: </h2>
+    <h2>Cadastrar Produto</h2>
+    <form action="/clientes/cadastrarproduto" method="POST" class="form-container2">
+        <div class="form-group">
+            <label for="nomeproduto">Nome do produto:</label>
+            <input type="text" id="nomeproduto" name="nomeproduto" class="form-control" placeholder="Nome do Produto" required>
+        </div>
+        <div class="form-group">
+            <label for="preco">Preço:</label>
+            <input type="text" id="preco" name="preco" class="form-control" placeholder="Preço" required>
+        </div>
+        <div class="form-group">
+            <label for="precovenda">Preço de venda:</label>
+            <input type="text" id="precovenda" name="precovenda" class="form-control" placeholder="Preço de venda" required>
+        </div>
+        <div class="form-group">
+            <label for="validade">Validade:</label>
+            <input type="date" id="validade" name="validade" class="form-control" placeholder="Validade" >
+        </div>
+        <div class="form-group quantidade-cadbotao">
+            <div class="form-group">
+                <label for="quantidade">Quantidade:</label>
+                <input type="text" id="quantidade" name="quantidade" class="form-control" placeholder="Quantidade" required>
+            </div>
+            <div class="cadbotao">
+                <input type="submit" value="Cadastrar Produto">
+            </div>
+        </div>
+    </form>
 </div>
+
+<div class="produto">
+    <br>
+    <h2>Listagem e Gestão</h2>
+    <form action="/clientes/pesquisarproduto" method="GET" class="form-group2">
+        <label for="pesquisar">Pesquisar produto:</label>
+        <input type="text" name="pesquisar" id="pesquisar" class="form-control">
+        <input type="submit" value="Pesquisar" class="botao">
+    </form>
+    <table class="product-table">
+        <thead>
+            <tr>
+                <th>Nome do Produto</th>
+                <th>Preço</th>
+                <th>Preço de Venda</th>
+                <th>Validade</th>
+                <th>Quantidade</th>
+                <th>Atualizar e Excluir</th>
+            </tr>
+        </thead>
+        <tbody id="listadeproduto">
+            {{#each produtos}}
+            <tr>
+                <td>{{this.nomeproduto}}</td>
+                <td>{{this.preco}}</td>
+                <td>{{this.precovenda}}</td>
+                <td>{{this.validade}}</td>
+                <td>{{this.quantidade}}</td>
+                <td>
+                    <div class="icon-container">
+                        <a href="/clientes/editarproduto"><button class="icon-button"><i class='bx bxs-edit-alt'></i></button></a>
+                        <button class="icon-button"><i class='bx bxs-trash'></i></button>
+                    </div>
+                </td>
+            </tr>   
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<style>
+    .produto {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .produto h2 {
+        margin-bottom: 20px;
+        color: #333;
+        text-align: center;
+    }
+
+    .form-container2 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: calc(50% - 10px);
+    }
+
+    .form-group label {
+        margin-bottom: 5px;
+        color: black;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    .quantidade-cadbotao {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .cadbotao input {
+        width: 100%;
+        padding: 12px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .cadbotao input:hover {
+        background-color: #0056b3;
+    }
+
+    .botao {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 600px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .botao:hover {
+        background-color: #0056b3;
+    }
+
+    .form-group2 {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .form-group2 label {
+        margin-right: 10px;
+        color: black;
+    }
+
+    .form-group2 input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    .product-table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+    }
+
+    .product-table th, .product-table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .product-table th {
+        background-color: #f5f5f5;
+    }
+
+    .product-table td {
+        background-color: #ffffff;
+    }
+
+    .icon-container {
+        display: flex;
+        gap: 10px;
+    }
+
+    .bx {
+        font-size: 1.6rem;
+    }
+    .icon-container {
+        display: flex;
+        gap: 10px;
+    }
+
+    .icon-button {
+        background: none;
+        border: 1px solid #ddd; /* Adiciona uma borda cinza */
+        border-radius: 5px; /* Borda arredondada */
+        cursor: pointer;
+        padding: 5px; /* Espaçamento interno */
+        transition: background-color 0.3s ease; /* Transição suave ao passar o mouse */
+    }
+
+    .icon-button:hover {
+        background-color: #f5f5f5; /* Cor de fundo ao passar o mouse */
+        border-color: #ccc; /* Mudança na cor da borda ao passar o mouse */
+    }
+
+
+</style>

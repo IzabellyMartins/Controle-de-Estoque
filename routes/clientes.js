@@ -81,16 +81,6 @@ router.post('/cadastro', (req, res) => {
     }
 });
 
-// Rota de login e autenticação
-router.get('/login', (req, res) => {
-    res.render('login')
-});
-
-router.post('/login/cliente', passport.authenticate('cliente-local', {
-    successRedirect: '/clientes/dashboard',
-    failureRedirect: '/clientes/login',
-    failureFlash: true
-}));
 
 
 // Rota de dashboard
@@ -104,14 +94,108 @@ FUNÇÕES NO DASHBOARD
 ........................................................................................*/
 
 // Cadastrando Produto
-router.get('/cadastrarproduto', (req, res) => {
-    res.render('cadproduto')
+router.get('/cadastrarproduto', async (req, res) => {
+    res.render('cadproduto');
 });
 
 
+router.post('/cadastrarproduto', async (req, res) => {
+    const { nomeproduto, preco, precovenda, validade, quantidade } = req.body;
 
+    let erros = [];
 
+    if (!nomeproduto || typeof nomeproduto === 'undefined' || nomeproduto === null) {
+        erros.push({ texto: "Nome do produto inválido!" });
+    }
+    if (!preco || typeof preco === 'undefined' || preco === null || isNaN(parseFloat(preco))) {
+        erros.push({ texto: "Preço inválido!" });
+    }
+    if (!precovenda || typeof precovenda === 'undefined' || precovenda === null || isNaN(parseFloat(precovenda))) {
+        erros.push({ texto: "Preço de venda inválido!" });
+    }
+    if (!validade || typeof validade === 'undefined' || validade === null) {
+        erros.push({ texto: "Validade inválida!" });
+    }
+    if (!quantidade || typeof quantidade === 'undefined' || quantidade === null || isNaN(parseInt(quantidade))) {
+        erros.push({ texto: "Quantidade inválida!" });
+    }
+
+    if (erros.length > 0) {
+        return res.render('cadproduto', { erros });
+    }
+
+    try {
+        const novoProduto = await prisma.produtos.create({
+            data: {
+                nomeproduto,
+                preco: parseFloat(preco),
+                precovenda: parseFloat(precovenda),
+                validade:  new Date(validade).toISOString(),
+                quantidade: parseInt(quantidade)
+            }
+        });
+
+        req.flash('success_msg', 'Produto cadastrado com sucesso!');
+        res.redirect('/clientes/cadastrarproduto');
+    } catch (error) {
+        console.error('Erro ao cadastrar o produto:', error);
+        req.flash('error_msg', 'Erro ao cadastrar o produto');
+        res.redirect('/clientes/cadastrarproduto');
+    }
+
+});
+
+// Rota de pesquisa de produto
+router.get('/pesquisarproduto', async (req, res) => {
+    try {
+        const { pesquisar } = req.query;
+        let produtos = [];
+        let error_msg = null;
+
+        if (pesquisar) {
+            produtos = await prisma.produtos.findMany({
+                where: {
+                    nomeproduto: {
+                        contains: pesquisar,
+                        mode: 'insensitive',
+                    },
+                },
+            });
+            if (produtos.length === 0) {
+                error_msg = 'Nenhum produto encontrado.';
+            }
+        } else {
+            produtos = await prisma.produtos.findMany();
+        }
+
+        res.render('cadproduto', { produtos, error_msg });
+    } catch (error) {
+        req.flash('error_msg', 'Erro ao pesquisar os produtos');
+        res.redirect('/clientes/cadastrarproduto');
+    }
+});
+
+// Rota para editar o cadastro de um produto
+router.get('/editarproduto', (req, res) => {
+    res.render('editproduto')
+});
+
+router.post('/editarproduto', (req, res) => {
+
+});
 /*---------------------------------------------------------------------------------------*/
+
+// Rota de login e autenticação
+router.get('/login', (req, res) => {
+    res.render('login')
+});
+
+router.post('/login/cliente', passport.authenticate('cliente-local', {
+    successRedirect: '/clientes/dashboard',
+    failureRedirect: '/clientes/login',
+    failureFlash: true
+}));
+
 // Rota de logout
 router.get('/sair', (req, res) => {
     req.logout((err) => {

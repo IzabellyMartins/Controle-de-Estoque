@@ -434,7 +434,7 @@ h2.separator {
   overflow-x: hidden;
   scrollbar-width: none;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
 
@@ -608,6 +608,9 @@ h2.separator {
   color: var(--dark);
 }
 
+.produto h2 {
+  color: var(--dark);
+}
 .produto {
   margin-left: 240px;
 }

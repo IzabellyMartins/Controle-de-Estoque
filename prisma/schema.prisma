@@ -14,3 +14,14 @@ model Clientes {
   email    String   @unique
   senha    String   @unique
 }
+
+model Produtos {
+  id           Int     @id @default(autoincrement())
+  nomeproduto  String
+  preco        Float
+  precovenda   Float
+  validade     DateTime
+  quantidade   Int
+  dataregistro    DateTime @default(now())
+  attregistro    DateTime @updatedAt
+}
